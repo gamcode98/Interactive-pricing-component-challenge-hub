@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;800&display=swap" rel="stylesheet">
+  <!-- My styles -->
+  <link rel="stylesheet" href="./css/styles.css">
+
+  <title>Frontend Mentor | Interactive pricing component</title>
+
+</head>
+
+<body>
+  <main class="main">
+    <h1 class="title">
+      Simple, traffic-based pricing
+    </h1>
+    <p class="second-text">
+      Sign-up for our 30-day trial. No credit card required.
+    </p>
+    <form class="form">
+      <div class="range-container">
+        <p class="title-form">
+          100K PAGEVIEWS
+        </p>
+        <input type="range" name="range" id="range" class="range" min="1" max="20" step="1" style="--val:11;">
+      </div>
+
+      <div class="billing-container">
+        <p class="billing-monthly">
+          Monthly Billing
+        </p>
+
+        <label class="switch">
+          <input type="checkbox">
+          <span class="slider"></span>
+        </label>
+
+        <p class="billing-yearly">
+          Yearly Billing
+        </p>
+        <p class="billing-discount">
+          -25%
+          <span class="billing-discount-text">
+            discount
+          </span>
+        </p>
+      </div>
+      <div class="include-items-btn-submit-container">
+        <ul class="items-container">
+          <li class="item">
+            <img src="./assets/images/icon-check.svg" class="check-img" alt="icon-check">
+            <p class="item-paraph">
+              Unlimited websites
+            </p>
+          </li>
+          <li class="item">
+            <img src="./assets/images/icon-check.svg" class="check-img" alt="icon-check">
+            <p class="item-paraph">
+              100% data ownership
+            </p>
+          </li>
+          <li class="item">
+            <img src="./assets/images/icon-check.svg" class="check-img" alt="icon-check">
+            <p class="item-paraph">
+              Email reports
+            </p>
+          </li>
+        </ul>
+        <input class="btn-submit" type="submit" id="btn-submit" value="Start my trial">
+      </div>
+    </form>
+  </main>
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Gamcode</a>.
+  </div>
+
+  <script src="./js/index.js"></script>
+</body>
+
+</html>

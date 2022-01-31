@@ -1,0 +1,376 @@
+:root {
+  /* Colors */
+  /* Primary */
+  --SoftCyanFullSliderBar: hsl(174, 77%, 80%);
+  --StrongCyanSliderBackround: hsl(174, 86%, 45%);
+  --LightGrayishRedDiscountBackground: hsl(14, 92%, 95%);
+  --LightRedDiscountText: hsl(15, 100%, 70%);
+  --RedDiscountText: hsl(23, 92%, 64%);
+  --PaleBlueCTAText: hsl(226, 100%, 87%);
+  /* Neutral */
+  --WhitePricingComponentBackground: hsl(0, 0%, 100%);
+  --VeryPaleBlueMainBackground: hsl(230, 100%, 99%);
+  --LightGrayishBlueEmptySliderBar: hsl(224, 65%, 95%);
+  --LightGrayishBlueToggleBackground: hsl(223, 50%, 87%);
+  --GrayishBlueText: hsl(225, 20%, 60%);
+  --DarkDesaturatedBlueTextCTABackground: hsl(227, 35%, 25%);
+  /* --val: 10; */
+  --min: 1;
+  --max: 20;
+}
+body {
+  font-family: "Manrope", sans-serif;
+  /* Weights: 600, 800 */
+  margin: 4rem 0 0;
+  background-color: var(--VeryPaleBlueMainBackground);
+  background-image: url("./../assets/images/pattern-circles.svg"),
+    url("./../assets/images/bg-pattern.svg");
+  background-repeat: no-repeat;
+  background-position: center top 2rem, left top;
+}
+.main {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.title {
+  text-align: center;
+  font-size: 1.3rem;
+  color: var(--DarkDesaturatedBlueTextCTABackground);
+  font-weight: 800;
+}
+.second-text {
+  font-size: 0.8rem;
+  text-align: center;
+  max-width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--GrayishBlueText);
+}
+.form {
+  background-color: var(--WhitePricingComponentBackground);
+  border-radius: 0.5rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  box-shadow: 0px 0.5px 20px -10px var(--GrayishBlueText);
+}
+.range-container {
+  text-align: center;
+  padding: 1.5rem;
+  padding-bottom: 0;
+}
+.title-form {
+  font-weight: 800;
+  margin-top: 0;
+  color: var(--GrayishBlueText);
+  font-size: 0.8rem;
+  letter-spacing: 0.1rem;
+  margin-bottom: 1.5rem;
+}
+.month-price {
+  font-size: 1.8rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.month-price span {
+  display: inline-block;
+  font-size: 0.8rem;
+  color: var(--GrayishBlueText);
+}
+/* Range styles */
+input[type="range"] {
+  --range: calc(var(--max) - var(--min));
+  --ratio: calc((var(--val) - var(--min)) / var(--range));
+  --sx: calc(0.5 * 1.5em + var(--ratio) * (100% - 1.5em));
+  box-sizing: border-box;
+  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+  width: 100%; /* Specific width is required for Firefox. */
+  background: transparent; /* Otherwise white in Chrome */
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+input[type="range"]:focus {
+  outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+
+input[type="range"]::-ms-track {
+  width: 100%;
+  cursor: pointer;
+
+  /* Hides the slider so custom styles can be added */
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+/* Special styling for WebKit/Blink */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background-color: var(--StrongCyanSliderBackround);
+  cursor: pointer;
+  background-image: url("./../assets/images/icon-slider.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 60%;
+  box-shadow: 0px 7px 20px 0px var(--StrongCyanSliderBackround);
+  margin-top: -0.7rem;
+  /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+}
+
+/* All the same stuff for Firefox */
+input[type="range"]::-moz-range-thumb {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background: var(--StrongCyanSliderBackround);
+  background-image: url("./../assets/images/icon-slider.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 60%;
+  border: none;
+  box-shadow: 0px 7px 20px 0px var(--StrongCyanSliderBackround);
+  cursor: pointer;
+}
+
+/* All the same stuff for IE */
+input[type="range"]::-ms-thumb {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background: var(--StrongCyanSliderBackround);
+  background-image: url("./../assets/images/icon-slider.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 60%;
+  box-shadow: 0px 7px 20px 0px var(--StrongCyanSliderBackround);
+  cursor: pointer;
+}
+/* Slider */
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  background: var(--LightGrayishBlueEmptySliderBar);
+  background: var(--StrongCyanSliderBackround);
+  background: linear-gradient(
+      var(--SoftCyanFullSliderBar),
+      var(--StrongCyanSliderBackround)
+    )
+    0 / var(--sx) 100% no-repeat var(--LightGrayishBlueEmptySliderBar);
+  border-radius: 0.3rem;
+}
+
+input[type="range"]:focus::-webkit-slider-runnable-track {
+  background-color: var(--LightGrayishBlueToggleBackground);
+}
+
+input[type="range"]::-moz-range-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  background: var(--LightGrayishBlueEmptySliderBar);
+  border-radius: 0.3rem;
+}
+
+input[type="range"]::-ms-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  border-width: 16px 0;
+  color: transparent;
+}
+input[type="range"]::-ms-fill-lower {
+  background: #2a6495;
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+input[type="range"]:focus::-ms-fill-lower {
+  background: #3071a9;
+}
+input[type="range"]::-ms-fill-upper {
+  background: #3071a9;
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+input[type="range"]:focus::-ms-fill-upper {
+  background-color: var(--LightGrayishBlueToggleBackground);
+}
+
+.billing-container {
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: var(--GrayishBlueText);
+  border-bottom: 1.5px solid var(--LightGrayishBlueEmptySliderBar);
+  padding: 1.5rem;
+  padding-top: 0;
+}
+.billing-discount-text {
+  display: none;
+}
+.billing-discount-text.is-visible {
+  display: inline-block;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+  margin: 0 10px;
+  box-sizing: border-box;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--LightGrayishBlueEmptySliderBar);
+  transition: 0.4s;
+  border-radius: 34px;
+}
+.switch input {
+  display: none;
+}
+.slider::before {
+  position: absolute;
+  content: "";
+  height: 15px;
+  width: 15px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+input:checked + .slider {
+  background-color: var(--StrongCyanSliderBackround);
+}
+input:checked + .slider::before {
+  transform: translateX(20px);
+}
+.billing-discount {
+  background-color: var(--LightGrayishRedDiscountBackground);
+  border-radius: 0.7rem;
+  padding: 0.2rem 0.4rem;
+  color: var(--RedDiscountText);
+}
+.include-items-btn-submit-container {
+  color: var(--GrayishBlueText);
+  font-size: 0.8rem;
+  padding: 1.5rem;
+  padding-top: 0.5rem;
+}
+.items-container {
+  padding-left: 0;
+  list-style: none;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.item {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.item-paraph {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.check-img {
+  display: block;
+}
+.btn-submit {
+  box-sizing: border-box;
+  outline: none;
+  padding: 0.5rem 2.5rem;
+  border: none;
+  border-radius: 1rem;
+  color: var(--WhitePricingComponentBackground);
+  background-color: var(--DarkDesaturatedBlueTextCTABackground);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+}
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+@media screen and (min-width: 768px) {
+  input[type="range"] {
+    width: 50%;
+  }
+  .billing-container {
+    justify-content: center;
+    gap: 1rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .main {
+    width: 30%;
+  }
+  .second-text {
+    max-width: initial;
+  }
+  .range-container {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .title-form {
+    order: 1;
+    margin: 0;
+  }
+  input[type="range"] {
+    order: 3;
+    width: 100%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+  .month-price {
+    order: 2;
+    margin: 0;
+  }
+  .billing-container {
+    justify-content: end;
+    gap: 0.3rem;
+  }
+  .include-items-btn-submit-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .items-container {
+    align-items: initial;
+    margin-bottom: 0;
+  }
+
+  .btn-submit {
+    margin-right: initial;
+    margin-left: initial;
+  }
+}
